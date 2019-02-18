@@ -5,6 +5,7 @@ All Andrew's S3 data is available at `s3://realtime-buses/datasets/`. To copy bo
 Additionally, notebooks 2 and 3 reference GTFS feeds that should be downloaded from https://transitfeeds.com/p/king-county-metro/73 and unzipped to `data/source/gtfs_YYYYMMDD` folders.
 
 - `download_raw_locations.sh`: downloads Ben's raw data for January 2018
+- `process_raw_json_locations.sh`: convert's a set of Andrew's raw JSON data, usage: `./process_raw_json_locations.sh -i 'locations_2019*.json' -o outputfile.csv`
 - `01_transform_source_data.ipynb`: transforms said data into a pandas DataFrame indexed on the datetime - the output of this is available on S3 in file `positions_201801.h5`
 - `02_transform_e_locations.ipynb`: selects northbound E-line vehicles and calculates `closest_stop_id` (used in future analysis) - the output of this is available on S3 in file `e_northbound_locations_2018-01.h5`
 - `03_e_segment_analysis.ipynb`: transforms data into a shape that will let us calculate time between two stops for northbound E (denny/aurora and 46th/aurora), then generates histograms for the distribution those commute times
